@@ -86,7 +86,8 @@ def encode_log_line(log_line, log_type, indices, categorical_fractions, encoding
         log_format = config["LOG"][log_type]
     except:
         print(
-            "Log type '{}' not defined. \nMake sure \"settings.conf\" file exits and the log concerned type is defined.\nExiting".format(
+            "Log type '{}' not defined. \nMake sure \"settings.conf\""
+            " file exits and the log concerned type is defined.\nExiting".format(
                 log_type
             )
         )
@@ -175,7 +176,8 @@ def get_categorical_indices(log_file, log_type):
             log_format = config["LOG"][log_type]
         except:
             print(
-                "Log type '{}' not defined. \nMake sure \"settings.conf\" file exits and the log concerned type is defined.\nExiting".format(
+                "Log type '{}' not defined. \nMake sure \"settings.conf\""
+                " file exits and the log concerned type is defined.\nExiting".format(
                     log_type
                 )
             )
@@ -217,7 +219,8 @@ def get_categorical_fractions(log_file, log_type):
             log_format = config["LOG"][log_type]
         except:
             print(
-                "Log type '{}' not defined. \nMake sure \"settings.conf\" file exits and the log concerned type is defined.\nExiting".format(
+                "Log type '{}' not defined. \nMake sure \"settings.conf\""
+                " file exits and the log concerned type is defined.\nExiting".format(
                     log_type
                 )
             )
@@ -406,7 +409,8 @@ try:
     FEATURES = config["FEATURES"]["features"].split(",")
 except:
     print(
-        'No features defined. Make sure the file "settings.conf" exists and training/prediction features are defined.'
+        'No features defined. Make sure the file "settings.conf" exists'
+        " and training/prediction features are defined."
     )
     print("Exiting..")
     sys.exit(1)

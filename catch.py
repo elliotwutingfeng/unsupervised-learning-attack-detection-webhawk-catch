@@ -170,13 +170,13 @@ def print_findings(findings, log_type):
     for finding in findings:
         if not log_type == "os_processes":
             logging.info(
-                "\n\t/!\ Webhawk {} - Possible anomalous behaviour detected at line:{}".format(
+                "\n\t/!\\ Webhawk {} - Possible anomalous behaviour detected at line:{}".format(
                     finding["severity"], finding["log_line_number"]
                 )
             )
         else:
             logging.info(
-                "\n\t/!\ Webhawk {} - Possible anomalous behaviour detected at line:{}".format(
+                "\n\t/!\\ Webhawk {} - Possible anomalous behaviour detected at line:{}".format(
                     finding["severity"], finding["pid"]
                 )
             )
@@ -364,7 +364,8 @@ def main():
     # Getting or setting epsilon
     if args["eps"] == None:
         logging.info(
-            "\n> No Epsilon input. Finding the max sorted neighbors curvature point and use it as Epsilon"
+            "\n> No Epsilon input. Finding the max sorted neighbors"
+            " curvature point and use it as Epsilon"
         )
         automatic_max_curve_point = find_max_curvature_point(
             dataframe, args["show_plots"]
