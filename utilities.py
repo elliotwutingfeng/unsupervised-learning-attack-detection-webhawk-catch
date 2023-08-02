@@ -263,7 +263,7 @@ def construct_encoded_data_file(data, set_simulation_label):
     for url in data:
         # U for unknown
         attack_label = "U"
-        if set_simulation_label == True:
+        if set_simulation_label is True:
             attack_label = "0"
             # Ths patterns are not exhaustive and they are here just for the simulation purpose
             patterns = ("honeypot", "%3b", "xss", "sql", "union", "%3c", "%3e", "eval")

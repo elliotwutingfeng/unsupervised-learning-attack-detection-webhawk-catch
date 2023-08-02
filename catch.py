@@ -282,7 +282,7 @@ def main():
     THRESHOLD = int(args["minority_threshold"]) if args["minority_threshold"] else 5
 
     encoding_type = (
-        "label_encoding" if args["label_encoding"] == True else "fraction_encoding"
+        "label_encoding" if args["label_encoding"] is True else "fraction_encoding"
     )
 
     FEATURES = [
@@ -362,7 +362,7 @@ def main():
     plot_informative(dataframe["pc_1"], dataframe["pc_2"], dataframe["pc_2"])
 
     # Getting or setting epsilon
-    if args["eps"] == None:
+    if args["eps"] is None:
         logging.info(
             "\n> No Epsilon input. Finding the max sorted neighbors"
             " curvature point and use it as Epsilon"
@@ -394,13 +394,13 @@ def main():
     logging.info("\n> Starting detection..")
     # Use dbscan for clustering and train the model
 
-    if args["eps"] == None and args["min_samples"] == None:
+    if args["eps"] is None and args["min_samples"] is None:
         dbscan = sklearn.cluster.DBSCAN(eps=selected_eps)
-    elif args["eps"] == None:
+    elif args["eps"] is None:
         dbscan = sklearn.cluster.DBSCAN(
             eps=selected_eps, min_samples=int(args["min_samples"])
         )
-    elif args["min_samples"] == None:
+    elif args["min_samples"] is None:
         dbscan = sklearn.cluster.DBSCAN(eps=selected_eps)
     else:
         dbscan = sklearn.cluster.DBSCAN(
