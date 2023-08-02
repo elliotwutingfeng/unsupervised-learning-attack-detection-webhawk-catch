@@ -287,7 +287,7 @@ def main():
 
     FEATURES = [
         "params_number",
-        #'size', # Stopped using size because it make a lot of false positive detections
+        # 'size', # Stopped using size because it make a lot of false positive detections
         "length",
         "upper_cases",
         "lower_cases",
