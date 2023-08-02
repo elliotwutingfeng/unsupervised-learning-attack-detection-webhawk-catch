@@ -164,7 +164,7 @@ def get_categorical_indices(log_file,log_type):
         try:
             log_line = re.match(log_format,log_line).groups()
         except:
-            print('Log type \'{}\' doesn\'t fit your log fomat.\nExiting'.format(log_type))
+            print('Log type \'{}\' doesn\'t fit your log format.\nExiting'.format(log_type))
             sys.exit(1)
 
         http_query=log_line[2].split(' ')[0]
@@ -200,7 +200,7 @@ def get_categorical_fractions(log_file,log_type):
         try:
             log_line = re.match(log_format,log_line).groups()
         except:
-            print('Log type \'{}\' doesn\'t fit your log fomat.\nExiting'.format(log_type))
+            print('Log type \'{}\' doesn\'t fit your log format.\nExiting'.format(log_type))
             sys.exit(1)
         data_count+=1
         http_query=log_line[2].split(' ')[0]
@@ -225,7 +225,7 @@ def get_categorical_fractions(log_file,log_type):
             fractions[fraction][categorical_fraction] = fractions[fraction][categorical_fraction]/(data_count*1.)
     return fractions
 
-def construct_enconded_data_file(data,set_simulation_label):
+def construct_encoded_data_file(data,set_simulation_label):
 	labelled_data_str = f"{config['FEATURES']['features']},label,log_line\n"
 	for url in data:
 		# U for unknown
@@ -342,7 +342,7 @@ def get_process_details(pid):
         process = psutil.Process(pid)
         return process.as_dict(attrs=process_details_attributes)
     except Exception as e:
-        print(f'Cannot get process details about PID: {pid} becasue {e}')
+        print(f'Cannot get process details about PID: {pid} because {e}')
         return {}
 
 config = configparser.ConfigParser()

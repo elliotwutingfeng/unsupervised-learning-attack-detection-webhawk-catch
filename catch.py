@@ -33,7 +33,7 @@ parser.add_argument('-o', '--standardize_data', help='Standardize feature values
 parser.add_argument('-r', '--report', help='Create a HTML report', action='store_true')
 parser.add_argument('-z', '--opt_silouhette', help='Optimize DBSCAN silouhette', action='store_true')
 parser.add_argument('-b', '--debug', help = 'Activate debug logging', action='store_true')
-parser.add_argument('-c', '--label_encoding', help = 'Use label encoding instead of frequeny encoding to encode categorical features', action='store_true')
+parser.add_argument('-c', '--label_encoding', help = 'Use label encoding instead of frequency encoding to encode categorical features', action='store_true')
 
 
 # This function makes two informative plots
@@ -75,7 +75,7 @@ def get_data(log_file, log_type, log_size_limit, FEATURES,encoding_type):
             logging.info('Something went wrong encoding data.')
             sys.exit(1)
         try:
-            _,data_str = construct_enconded_data_file(encoded_logs, False)
+            _,data_str = construct_encoded_data_file(encoded_logs, False)
         except:
             logging.info('Something went wrong constructing data')
             sys.exit(1)
@@ -85,7 +85,7 @@ def get_data(log_file, log_type, log_size_limit, FEATURES,encoding_type):
         data = data[FEATURES]
     return data
 
-# This function returnt the number of elements by cluster (including the outliers 'cluster')
+# This function returns the number of elements by cluster (including the outliers 'cluster')
 def find_elements_by_cluster(labels):
     elements_by_cluster={}
     for label in set(labels):
@@ -261,7 +261,7 @@ def main():
     logging.info('{}The input log file is {}'.format(' '*4,args['log_type']))
     logging.info('{}Log format is set to {}'.format(' '*4,args['log_type']))
     logging.info('{}Demo plotting is set to {}'.format(' '*4,args['show_plots']))
-    logging.info('{}Features standarization is set to {}'.format(' '*4,args['standardize_data']))
+    logging.info('{}Features standardization is set to {}'.format(' '*4,args['standardize_data']))
 
     # Get data
     logging.info('\n> Data reading started')
@@ -282,7 +282,7 @@ def main():
     else:
         dataframe = data
 
-    # Standarize data
+    # Standardize data
     if args['standardize_data']:
         dataframe = sklearn.preprocessing.StandardScaler().fit_transform(dataframe)
 
@@ -302,7 +302,7 @@ def main():
                 data['POWER'],
                 data['CYCLES'])
 
-    # Dimensiality reduction to 2d using PCA
+    # Dimensionality reduction to 2d using PCA
     pca = sklearn.decomposition.PCA(n_components=2)
     principal_components_df = pca.fit_transform(dataframe)
     dataframe = pd.DataFrame(
@@ -362,14 +362,14 @@ def main():
     # Get top minority clusters
     minority_clusters = get_minority_clusters(elements_by_cluster,THRESHOLD)
 
-    # Outliers are considred as high severity findings
+    # Outliers are considered as high severity findings
 
     high_findings = catch(labels,data,-1, args['log_type'])
     if len(high_findings)>0:
         logging.info ('\n\n\n\n    '+100*'/'+'   HIGH Severity findings   '+100*'\\')
         print_findings(high_findings, args['log_type'])
 
-    # Points belonging to minority clusters are considred as medium severity findings
+    # Points belonging to minority clusters are considered as medium severity findings
     medium_findings=[]
     for label in minority_clusters:
         if label != -1:
