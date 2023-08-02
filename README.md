@@ -135,13 +135,16 @@ Nothing for now.
 ## Reference
 
 Silhouette Efficiency
-<br><https://bioinformatics-training.github.io/intro-machine-learning-2017/clustering.html>
 
-<br>Optimal Value of Epsilon
-<br><https://towardsdatascience.com/machine-learning-clustering-dbscan-determine-the-optimal-value-for-epsilon-eps-python-example-3100091cfbc>
+<https://bioinformatics-training.github.io/intro-machine-learning-2017/clustering.html>
 
-<br>Max curvature point
-<br><https://towardsdatascience.com/detecting-knee-elbow-points-in-a-graph-d13fc517a63c>
+Optimal Value of Epsilon
+
+<https://towardsdatascience.com/machine-learning-clustering-dbscan-determine-the-optimal-value-for-epsilon-eps-python-example-3100091cfbc>
+
+Max curvature point
+
+<https://towardsdatascience.com/detecting-knee-elbow-points-in-a-graph-d13fc517a63c>
 
 ## Contribution
 
