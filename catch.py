@@ -16,7 +16,13 @@ import sklearn.decomposition
 import matplotlib.pyplot as plt
 import logging
 
-from utilities import *
+from utilities import (
+    parse_process_file,
+    encode_log_file,
+    construct_encoded_data_file,
+    gen_report,
+    get_process_details,
+)
 
 
 parser = argparse.ArgumentParser()
