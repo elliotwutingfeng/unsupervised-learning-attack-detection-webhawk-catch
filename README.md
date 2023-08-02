@@ -87,7 +87,7 @@ Encoding is automatic for the unsupervised mode. You just need to run the catch.
 Get inspired from this example:
 
 ```shell
-python catch.py -l ../HTTP_LOGS_DTATSETS/SECREPO_LOGS/access.log.2021-10-22 --log_type apache --show_plots --standardize_data --report
+python catch.py -l ./SAMPLE_DATA/RAW_APACHE_LOGS/access.log.2021-10-22 --log_type apache --show_plots --standardize_data --report
 ```
 
 The output of this command is:
