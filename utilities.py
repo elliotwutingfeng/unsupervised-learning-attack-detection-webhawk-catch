@@ -8,7 +8,6 @@ import ast
 import sys
 import time
 import psutil
-import pandas as pd
 
 
 def get_process_col_locations(header_line, list_col_names):

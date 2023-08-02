@@ -6,7 +6,7 @@ import kneed
 import argparse
 import pyfiglet
 import termcolor
-import matplotlib
+import sys
 import numpy as np
 import pandas as pd
 import sklearn.cluster
